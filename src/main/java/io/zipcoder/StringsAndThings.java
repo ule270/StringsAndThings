@@ -28,8 +28,20 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String result = "";
+        int baseLength = base.length();
+        int removeLength = remove.length();
+
+        for(int i = 0; i < baseLength; i++){
+            if((i <= (baseLength - removeLength)) && (base.substring(i, i + removeLength).equalsIgnoreCase(remove))) {
+                i += removeLength-1;
+                continue;
+            }
+            result += base.charAt(i);
+        }
+        return result;
     }
+
 
     /**
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
