@@ -15,8 +15,12 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-
-        return null;
+        int count = 0;
+        input = input.toLowerCase() +" ";
+        for (int i = 0; i < (input.length() - 1); i++)
+            if ((input.charAt(i) == 'y' || input.charAt(i) == 'z') && !Character.isLetter(input.charAt(i + 1)))
+                count++;
+        return count;
     }
 
     /**
@@ -35,10 +39,10 @@ public class StringsAndThings {
 
         for(int i = 0; i < baseLength; i++){
             if((i <= (baseLength - removeLength)) && (base.substring(i, i + removeLength).equalsIgnoreCase(remove))) {
-                i += removeLength-1;
+                i = i + (removeLength - 1);
                 continue;
             }
-            result += base.charAt(i);
+            result = result + base.charAt(i);
         }
         return result;
     }
